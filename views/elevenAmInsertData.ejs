@@ -1,0 +1,34 @@
+<%- include("./includes/head")  %>
+<h1 class="title">11:00 Insert Data </h1>
+
+<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+
+<form method="POST"  action="/admin/elevenAmInsertData">
+
+    <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+    </div>
+
+    <div>
+        <label for="twoD">TwoD</label>
+        <input type="text" id="twoD" name="twoD" required maxlength="2" minlength="2">
+    </div>
+
+    <div>
+        <label for="set">Set</label>
+        <input type="text" id="set" name="set" required maxlength="6" minlength="6">
+    </div>
+
+    <div>
+        <label for="value">Value</label>
+        <input type="text" id="value" name="value" required maxlength="6" minlength="6">
+    </div>
+
+    <button>Insert Data</button>
+
+</form>
+
+</div>
+
+<%- include("./includes/foot") %>

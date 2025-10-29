@@ -1,0 +1,85 @@
+.title{
+    text-align: center;
+}
+.description{
+    color: red;
+    text-align: center;
+}
+a{
+   display:block;
+    margin: 10px 0;
+    color: white;
+    background-color: black;
+    padding: 10px 10px;
+    width: fit-content;
+    text-decoration: none;
+}
+label{
+    display: block;
+    font-size: 16px;
+    margin: 10px ;
+}
+input,
+textarea{
+    font-size: 18px;
+    padding: 4px;
+    width: 100%;
+}
+button,
+.btn-edit{
+    margin: 10px 0;
+    color: white;
+    background-color: black;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+}
+.mx-auto{
+    width: 40%;
+    margin: auto auto;
+}
+.post-box{
+    border:  1px solid black;
+    padding: 10px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-title{
+    font-size: 20px;
+    text-transform:  uppercase;
+    font-weight: 600;
+}
+.detail.h1{
+    text-align: center;
+    margin: 20px;
+}
+.detail img{
+    width: 40%;
+    height: 60rem;
+    object-fit: cover;
+}
+.detail p{
+    font-size: 18px;
+
+}
+
+.resultFill {
+    display: flex;
+    gap: 10px; /* spacing between links */
+}
+
+.resultFill a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    color: black;
+}
+
+.resultFill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+

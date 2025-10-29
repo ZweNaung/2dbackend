@@ -1,0 +1,42 @@
+<%- include("./includes/head")  %>
+<h1 class="title">Insert Data</h1>
+
+<div class="resultFill" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 20px 0;">
+    <a href="/admin/elevenAmInsertData/" style="padding: 10px 15px; background: #007BFF; color: white; text-decoration: none; border-radius: 5px;">11:00AM</a>
+    <a href="/admin/twelveAmInsertData/" style="padding: 10px 15px; background: #007BFF; color: white; text-decoration: none; border-radius: 5px;">12:01PM</a>
+    <a href="/admin/threePmInsertData/" style="padding: 10px 15px; background: #007BFF; color: white; text-decoration: none; border-radius: 5px;">3:00PM</a>
+    <a href="/admin/fourPmInsertData/" style="padding: 10px 15px; background: #007BFF; color: white; text-decoration: none; border-radius: 5px;">4:30PM</a>
+</div>
+
+<hr />
+
+<h1 class="title" style="text-align: center;">Result</h1>
+
+<form action="/viewData" method="GET" style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px;">
+    <label for="date">Select a date:</label>
+    <input type="date" name="date" id="date" required style="width: 250px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+    <button type="submit" style="width: 120px; padding: 8px; background-color: #007BFF; color: white; border: none; border-radius: 4px;">View</button>
+
+</form>
+
+<%- include("./includes/foot") %>
+
+<!--<div class="resultFill">-->
+
+<!--&lt;!&ndash;    <a href="/admin/nineAmInsertData/">9:00AM</a>&ndash;&gt;-->
+<!--    <a href="/admin/elevenAmInsertData/">11:00AM</a>-->
+<!--    <a href="/admin/twelveAmInsertData/">12:01PM</a>-->
+<!--    <a href="/admin/threePmInsertData/">3:00PM</a>-->
+<!--    <a href="/admin/fourPmInsertData/">4:30PM</a>-->
+<!--</div>-->
+
+
+<!--<h1 class="title">Result</h1>-->
+
+<!--<form action="/viewData" method="GET" style="text-align:center;">-->
+<!--    <label>Select a date:</label>-->
+<!--    <input type="date" name="date" required>-->
+<!--    <button type="submit">View</button>-->
+<!--</form>-->
+
+

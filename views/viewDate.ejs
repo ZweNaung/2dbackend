@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Data for <%= date %></title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        .message {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Data for Date: <%= date %></h2>
+
+<% if (message) { %>
+    <p class="message"><%= message %></p>
+<% } else { %>
+    <table>
+        <thead>
+        <tr>
+            <th>Time</th>
+            <th>2D</th>
+            <th>Set</th>
+            <th>Value</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% childData.forEach((item, index) => { %>
+            <tr>
+                <td><%= item.time %></td>
+                <td><%= item.twoD %></td>
+                <td><%= item.set %></td>
+                <td><%= item.value %></td>
+                <td>
+                    <form action="/admin/editChild" method="get" style="display:inline;">
+                        <input type="hidden" name="date" value="<%= date %>">
+                        <input type="hidden" name="index" value="<%= index %>">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+
+<% } %>
+
+<a href="/">Home</a>
+
+
+</body>
+</html>

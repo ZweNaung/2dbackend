@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Entry</title>
+</head>
+<body>
+<h2>Edit Entry for <%= date %> @ <%= item.time %></h2>
+<form action="/admin/update-child" method="post">
+    <input type="hidden" name="date" value="<%= date %>">
+    <input type="hidden" name="index" value="<%= index %>">
+
+    <label>Time:</label>
+    <input type="text" name="time" value="<%= item.time %>" readonly><br>
+
+    <label>2D:</label>
+    <input type="text" name="twoD" value="<%= item.twoD %>"><br>
+
+    <label>Set:</label>
+    <input type="text" name="set" value="<%= item.set %>"><br>
+
+    <label>Value:</label>
+    <input type="text" name="value" value="<%= item.value %>"><br>
+
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
