@@ -104,10 +104,8 @@ const updateOmen = async function(req, res) {
 
         const updateData = {};
 
-        // (၁) ပထမဆုံး data ရှိမရှိ စစ်ဆေးပါ
         const existingOmen = await omenModel.findById(id);
 
-        // (ပြင်ဆင်ချက် ၁) Data မတွေ့မှသာ 404 error ပြန်ပါ
         if (!existingOmen) {
             return res.status(404).json({ error: "Omen not found" });
         }
@@ -119,7 +117,7 @@ const updateOmen = async function(req, res) {
         if (req.file) {
             console.log("New file detected. Processing update...");
 
-            // ပုံအဟောင်းကို R2 မှ ဖျက်ခြင်း
+            // delete photo from R2
             if (existingOmen.imgUrl) {
                 try {
                     const oldUrlParts = existingOmen.imgUrl.split('/');
@@ -136,7 +134,7 @@ const updateOmen = async function(req, res) {
                 }
             }
 
-            // ပုံအသစ်ကို R2 သို့ တင်ခြင်း
+            //new photo upload to R2
             const newFileName = `omen/${Date.now()}-${req.file.originalname}`;
             const uploadCommand = new PutObjectCommand({
                 Bucket: process.env.R2_BUCKET_NAME,
@@ -154,10 +152,11 @@ const updateOmen = async function(req, res) {
             return res.status(400).json({ error: "No update data provided. Please provide a name or an image." });
         }
 
-        // (ပြင်ဆင်ချက် ၂) DB update နှင့် response ပို့ခြင်းကို if(req.file) block အပြင်သို့ ထုတ်ထားသည်
+        // DB update and response send if(req.file) block
         const updatedOmen = await omenModel.findByIdAndUpdate(id, updateData, { new: true });
 
         res.status(200).json({
+            success:true,
             message: 'Successfully updated omen',
             data: updatedOmen
         });
@@ -183,7 +182,9 @@ const deleteOmen = async function(req, res){
 
         if(omenToDelete.imgUrl){
             const urlParts = omenToDelete.imgUrl.split('/');
-            const fileName = urlParts[urlParts.length - 1];
+
+            // const fileName = urlParts[urlParts.length - 1];
+            const fileName= urlParts.slice(-2).join('/');
 
             const command = new DeleteObjectCommand({
                 Bucket: process.env.R2_BUCKET_NAME,
@@ -197,6 +198,7 @@ const deleteOmen = async function(req, res){
         await omenModel.findByIdAndDelete(id)
 
         res.status(200).json({
+            success: true,
             message: 'Successfully deleted omen',
             data: {
                 _id: omenToDelete.id,
