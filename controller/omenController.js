@@ -12,7 +12,7 @@ const s3Client = new S3Client({
     }
 });
 
-
+//New Upload
 const omenUploadData = async (req, res)=>{
     try {
         const {name}= req.body;
@@ -56,7 +56,7 @@ const omenUploadData = async (req, res)=>{
 }
 
 
-
+//Get All
 const getAllOmens = async function(req, res){
 
     try {
