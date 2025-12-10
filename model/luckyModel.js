@@ -8,8 +8,13 @@ const luckySchema = new Schema({
     imgUrl:{
         type: String,
         required: true,
+    },
+    section:{
+        type: String,
+        required: true,
+        enum:['week','day']
     }
 });
 
-const Lucky = mongoose.model("Lucky", luckySchema);
+const Lucky = mongoose.model("Lucky", luckySchema,"lucky_collection");
 module.exports = Lucky;
