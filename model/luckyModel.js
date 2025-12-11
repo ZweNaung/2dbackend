@@ -18,3 +18,5 @@ const luckySchema = new Schema({
 
 const Lucky = mongoose.model("Lucky", luckySchema,"lucky_collection");
 module.exports = Lucky;
+
+//testing
