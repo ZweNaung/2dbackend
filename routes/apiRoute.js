@@ -5,10 +5,13 @@ const apiController = require('../controller/apiInsertDataController');
 const dataController =require('../controller/dataController')
 const omenController = require('../controller/omenController')
 const multer = require('multer');
+const luckyController = require("../controller/LuckyController");
 
 const storage = multer.memoryStorage()
 const upload = multer({storage: storage });
 
+
+//----Daily-----
 //api/insert
 router.post('/insert/9am', apiController.nineInsertAPI);
 router.post('/insert/11am', apiController.elevenInsertAPI);
@@ -23,7 +26,7 @@ router.get('/allHistory/',dataController.getAllHistory)
 router.put('/updateChild/:date/child/:childId',dataController.updateChildResult)
 
 
-//----------
+//------OMEN-----
 //Upload a new omen
 router.post('/omen',upload.single('omenImage'),omenController.omenInsertData)
 
@@ -38,5 +41,13 @@ router.patch('/omen/:id',upload.single('omenImage'),omenController.updateOmen)
 
 //Delete an omen by ID
 router.delete('/omen/:id',omenController.deleteOmen)
+
+
+//------Lucky-----
+router.post('/lucky/',upload.single('luckyImage'),luckyController.luckyUpload)
+
+router.get('/lucky/',luckyController.getAllLucky)
+
+router.delete('/lucky/:id',luckyController.deleteLucky)
 
 module.exports = router;

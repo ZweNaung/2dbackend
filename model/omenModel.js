@@ -9,7 +9,7 @@ const omenSchema= new Schema({
     imgUrl:{
         type:String,
         required: true
-    }
+    },
 
 });
 
