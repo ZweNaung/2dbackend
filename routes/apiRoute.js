@@ -6,6 +6,7 @@ const dataController =require('../controller/dataController')
 const omenController = require('../controller/omenController')
 const multer = require('multer');
 const luckyController = require("../controller/LuckyController");
+const threeDController = require("../controller/threeDController");
 
 const storage = multer.memoryStorage()
 const upload = multer({storage: storage });
@@ -50,4 +51,11 @@ router.get('/lucky/',luckyController.getAllLucky)
 
 router.delete('/lucky/:id',luckyController.deleteLucky)
 
+//----Three_D----
+router.get('/threeD/all',threeDController.getAllThreeD)
+router.post('/threeD/',threeDController.entryThreeD)
+router.delete('/threeD/:id',threeDController.deleteEntries)
+
 module.exports = router;
+
+//testing..
