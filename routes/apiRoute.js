@@ -7,6 +7,8 @@ const omenController = require('../controller/omenController')
 const multer = require('multer');
 const luckyController = require("../controller/LuckyController");
 const threeDController = require("../controller/threeDController");
+const thaiLotteryController = require("../controller/thaiLotteryController");
+const myanmarLotteryController = require("../controller/myanmarLotController");
 
 const storage = multer.memoryStorage()
 const upload = multer({storage: storage });
@@ -56,6 +58,17 @@ router.get('/threeD/all',threeDController.getAllThreeD)
 router.post('/threeD/',threeDController.entryThreeD)
 router.delete('/threeD/:id',threeDController.deleteEntries)
 
+//---Thai_Lottery---
+router.get('/thaiLottery/all',thaiLotteryController.getAllThaiLottery)
+router.post('/thaiLottery/',upload.single('thaiLotImg'),thaiLotteryController.uploadThaiLottery)
+router.delete('/thaiLottery/:id',thaiLotteryController.deleteThaiLottery)
+
+//---Myanmar Lottery---
+router.get('/myanmarLot/all',myanmarLotteryController.getAllMyanmarLot)
+router.post('/myanmarLot/',upload.single('myanmarLotImg'),myanmarLotteryController.uploadMyanmarLot)
+router.delete('/myanmarLot/:id',myanmarLotteryController.deleteMyanmarLot)
+
+
 module.exports = router;
 
-//testing..
+
