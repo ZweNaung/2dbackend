@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require("path");
+const startScheduler = require('./jobs/scheduler')
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(postRoutes)
+
+startScheduler();
 
 app.use("/admin",adminRoutes);
 
